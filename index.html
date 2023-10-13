@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>documento</title>
+ 
+</head>
+<body>
+  
+  <script>
+    
+    class Persona {
+  // Definir atributos
+  #nombreCompleto;
+  #edad;
+  // Definir método constructor
+  constructor() {
+    this.#nombreCompleto = '';
+    this.#edad = 0;
+  }
+  // Métodos getter y setter para los atributos
+  set setNombreCompleto(value) {
+    this.#nombreCompleto = value;
+  }
+  get getNombreCompleto() {
+    return this.#nombreCompleto;
+  }
+  set setEdad(value) {
+    this.#edad = value;
+  }
+  get getEdad() {
+    return this.#edad;
+  }
+  // Otros métodos
+  saludar() {
+    console.log(`Hola, me llamo ${this.getNombreCompleto()} y mi edad es ${this.getEdad()} años`);
+  }
+}
+// Subclase Aprendiz
+class Aprendiz {
+  // Definir atributos
+  #nombreCompleto;
+  #edad;
+  #ficha;
+  #programa;
+  // Definir método constructor
+  constructor() {
+    this.#nombreCompleto = '';
+    this.#edad = 0; // Llama al constructor de la clase padre
+    this.#ficha = '';
+    this.#programa = '';
+  }
+  // Métodos getter y setter para los atributos
+  set setNombreCompleto(value) {
+    this.#nombreCompleto = value;
+  }
+  get getNombreCompleto() {
+    return this.#nombreCompleto;
+  }
+  set setEdad (value){
+    this.#edad = value;
+  }
+  get getEdad (){
+    return this.#edad;
+  }
+  set setFicha(value) {
+    this.#ficha = value;
+  }
+  get getFicha() {
+    return this.#ficha;
+  }
+  set setPrograma(value) {
+    this.#programa = value;
+  }
+  get getPrograma() {
+    return this.#programa;
+  }
+  // Otros métodos
+  presentarse() {
+    console.log(`Hola, me llamo ${this.getNombreCompleto()} y soy aprendiz del programa ${this.getPrograma()}`);
+  }
+}
+    //subclase aprendiz
+    class Aprendiz extends Persona{
+      //definir atributos
+      #ficha;
+      #programa;
+
+      // metodo constructor
+      constructor (){
+        super();
+        this.#ficha = '';
+        this.#programa = '';
+      }
+      
+      //metodos getter y setter
+      set setFicha(value){
+        this.#ficha = value;
+       }
+       
+      get getFicha(){
+        return this.#ficha;
+      }
+      
+      set setPrograma(value){
+        this.#programa = value;
+      }
+      
+      get getPrograma(){
+        return this.#programa;
+      }
+      
+      //otros metodos
+      matricula(){
+        console.log(`Estoy incrito en la ficha` + this.getFicha +
+                   `del programa` + this.getPrograma); 
+      }
+      
+    }
+    //subclase instructor
+      class Instructor extends Persona{
+        //definir atributos
+        #profesion;
+        #tipoVinculacion;
+        
+        //metodo constructor
+        constructor(){
+          super();
+          this.#profesion = '';
+          this.#tipoVinculacion = '';
+        }
+
+        //metodos getter y setter
+        set setProfesion(value){
+          this.#profesion = value;
+        }
+        
+        get getProfesion(){
+          return this.#profesion;
+        }
+        
+        set setTipoVinculacion(value){
+          this.#tipoVinculacion = value;
+        }
+        get getTipoVinculacion(){
+          return this.#tipoVinculacion;
+        }
+        
+        //otros metodos
+        Contrato (){
+          console.log(`Mi profesion es ` +  this.getProfesion +
+                   `y mi vinculacion es de tipo` + this.getTipoVinculacion);
+        }
+      }
+      
+      class InstructorPlanta extends Instructor{
+        //definir atributos
+        #fechaVinculacion;
+        
+        constructor(){
+          super();
+          this.#fechaVinculacion = 0;
+          
+        }
+        
+        //metodos getter y setter
+        set setFechaVinculacion(value){
+          this.#fechaVinculacion=value;
+        }
+        
+        get getFechaVinculacion(){
+          return this.#fechaVinculacion;
+        }
+        
+        //otros metodos
+        contrato(){
+          console.log(`Mi profesion es `+ this.getProfesion + 
+                  `con vinculacion de tipo` + this.getTipoVinculacion + `desde el año` + this.getFechaVinculacion);
+        }
+      }
+      
+     
+    const aprendiz1 = new Aprendiz;
+    
+    aprendiz1.setNombreCompleto = 'julia';
+    aprendiz1.setEdad =19;
+    aprendiz1.setFicha ='2798618';
+    aprendiz1.setPrograma ='Adso';
+    
+    aprendiz1.saludar();
+    aprendiz1.matricula();
+    
+    const aprendiz2 = new Aprendiz;
+    
+    aprendiz2.setNombreCompleto ='Amara';
+    aprendiz2.setEdad = 23;
+    aprendiz2.setFicha ='2789612'
+    aprendiz2.setPrograma ='arquitectura';
+    
+    aprendiz2.saludar();
+    aprendiz2.matricula();
+    
+    const instructor2 = new InstructorPlanta;
+    instructor2.setNombreCompleto ='german';
+    instructor2.setEdad = 39;
+    instructor2.setProfesion ='imgeniero';
+    instructor2.setTipoVinculacion ='planta';
+    instructor2.setFechaVinculacion =2019;
+
+    instructor2.saludar();
+    instructor2.contrato();
+
+    
+
+   
+    
+
+ 
+      
+    
+    
+  
+  </script>
+  
+</body>
+</html>
